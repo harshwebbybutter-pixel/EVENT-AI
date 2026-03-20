@@ -129,6 +129,8 @@ def upgrade() -> None:
         sa.Column('name', sa.String(255), nullable=False),
         sa.Column('subject', sa.String(500), nullable=False),
         sa.Column('body_html', sa.Text(), nullable=False),
+        sa.Column('body_text', sa.Text()),           # ✅ added
+        sa.Column('is_active', sa.Boolean(), server_default='true'),  # ✅ added
         sa.Column('ai_generated', sa.Boolean(), server_default='false'),
         sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.func.now()),
         sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.func.now()),
